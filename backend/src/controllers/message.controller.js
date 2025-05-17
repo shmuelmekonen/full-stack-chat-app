@@ -4,7 +4,7 @@ import Message from "../models/message.model.js";
 import cloudinary from "../lib/cloudinary.js";
 import { getReceiverSocketId, io } from "../lib/socket.js";
 
-export const getUsersForSideBar = async (req, res) => {
+export const getUserForSideBar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
         const filterdUsers = await User.find({_id: {$ne: loggedInUserId}}).select("-password");
